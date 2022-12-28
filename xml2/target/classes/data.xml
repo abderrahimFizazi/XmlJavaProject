@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="application/xml"?>
 <Etudiants>
-    <Etudiant>
+    <Etudiant code="1">
         <code>1</code>
         <Nom >Fizazi</Nom>
         <Prenom>Abderrahim</Prenom>
