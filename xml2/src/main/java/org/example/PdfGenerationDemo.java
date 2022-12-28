@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.xml.transform.Result;
@@ -33,13 +34,13 @@ public class PdfGenerationDemo
     public static void main( String[] args )
     {
         try {
-            convertToPDF();
+            convertToPDF("fizazi");
         } catch (FOPException | IOException | TransformerException e) {
             e.printStackTrace();
         }
     }
 
-    public static void convertToPDF() throws IOException, FOPException, TransformerException {
+    public static void convertToPDF( String fullName) throws IOException, FOPException, TransformerException {
         // the XSL FO file
         File xsltFile = new File(RESOURCES_DIR + "//template.xsl");
         // the XML file which provides the input
@@ -50,7 +51,8 @@ public class PdfGenerationDemo
         FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
         // Setup output
         OutputStream out;
-        out = newOutputStream(Paths.get(OUTPUT_DIR + "//output.pdf"));
+        out = newOutputStream(Paths.get(OUTPUT_DIR + "//" + fullName + ".pdf"));
+
 
         try {
             // Construct fop with desired output format

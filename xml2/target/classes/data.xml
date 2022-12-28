@@ -5,7 +5,8 @@
         <Nom>Fizazi</Nom>
         <Prenom>Abderrahim</Prenom>
         <code>123AD329248</code>
-        <src>pics/etudiants/fizazi.jpg</src>
+        <image>pics/etudiants/fizazi.jpg</image>
+        <qrc>pics/qrcode/fizazi.png</qrc>
     </Etudiant>
 
 </Etudiants>

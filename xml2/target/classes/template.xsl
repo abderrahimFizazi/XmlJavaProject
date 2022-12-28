@@ -3,17 +3,15 @@
     <xsl:output encoding="UTF-8" indent="yes" method="xml" standalone="no" omit-xml-declaration="no"/>
     <xsl:template match="Etudiants">
         <fo:root language="FR"  >
-            <fo:layout-master-set>
+            <fo:layout-master-set  >
                 <fo:simple-page-master master-name="business-card"
                                        page-height="4in"
                                        page-width="7in"
-                                       margin-top="0.1in"
-                                       margin-left="0.1in"
-                                       margin-right="0.1in">
-                    <fo:region-body  margin-top="55px" />
+                                      >
+                    <fo:region-body  margin-top="55px"/>
 <!--                   You can add Background here :  background-image="url('pics/background.png')"-->
-                    <fo:region-before extent="2in"/>
-                    <fo:region-after extent="5in"/>
+                    <fo:region-before extent="2in"   background-image="url('pics/background.png')"/>
+                    <fo:region-after extent="5in" />
                 </fo:simple-page-master>
             </fo:layout-master-set>
 
@@ -70,7 +68,7 @@
                                 <fo:table-row>
                                     <fo:table-cell>
                                         <fo:block text-align="center">
-                                            <fo:external-graphic src="{src}"
+                                            <fo:external-graphic src="{image}"
                                                                  content-width="scale-to-fit"
                                                                  content-height="90%"
                                                                  width="90%"
@@ -91,24 +89,21 @@
                                         </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
-                                        <fo:block>
-                                            <fo:instream-foreign-object>
-                                                <xsl:variable name="barcode-cfg">
-                                                    <barcode>
-                                                        <code128>
-                                                            <height>8mm</height>
-                                                        </code128>
-                                                    </barcode>
-                                                </xsl:variable>
-                                                <xsl:copy-of select="barcode:generate($barcode-cfg, '0123456789')"/>
-                                            </fo:instream-foreign-object>
+                                        <fo:block text-align="center">
+                                            <fo:external-graphic src="{qrc}"
+                                                                 content-width="scale-to-fit"
+                                                                 content-height="70%"
+                                                                 width="70%"
+                                                                 scaling="uniform"
+
+                                            />
                                         </fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </xsl:for-each>
                         </fo:table-body>
                     </fo:table>
-                    <fo:block id="end-of-document" text-align="center" display-align="center" margin-top="40px">
+                    <fo:block id="end-of-document" text-align="center" display-align="center" margin-top="30px">
                         Premiere Inscription : 2018 / 2019
                     </fo:block>
                 </fo:flow>
