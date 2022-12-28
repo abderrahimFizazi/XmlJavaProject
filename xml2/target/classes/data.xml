@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="application/xml"?>
+<Etudiants>
+    <Etudiant>
+        <Nom>Fizazi</Nom>
+        <Prenom>Abderrahim</Prenom>
+        <code>123AD329248</code>
+        <src>pics/etudiants/fizazi.jpg</src>
+    </Etudiant>
+
+</Etudiants>
