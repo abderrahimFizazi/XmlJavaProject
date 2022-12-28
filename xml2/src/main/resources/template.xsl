@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
     <xsl:output encoding="UTF-8" indent="yes" method="xml" standalone="no" omit-xml-declaration="no"/>
+    <xsl:param name="code"/>
+
     <xsl:template match="Etudiants">
         <fo:root language="FR"  >
             <fo:layout-master-set  >
@@ -64,7 +66,7 @@
                         <fo:table-column column-width="proportional-column-width(30)"/>
                         <fo:table-body font-size="95%">
 
-                            <xsl:for-each select="Etudiant">
+                            <xsl:for-each select="//*[code=$code]">
                                 <fo:table-row>
                                     <fo:table-cell>
                                         <fo:block text-align="center">
@@ -73,7 +75,6 @@
                                                                  content-height="90%"
                                                                  width="90%"
                                                                  scaling="uniform"
-
                                             />
                                         </fo:block>
                                     </fo:table-cell>
@@ -90,7 +91,7 @@
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block text-align="center">
-                                            <fo:external-graphic src="{qrc}"
+                                            <fo:external-graphic src="pics/qrcode/{$code}.png"
                                                                  content-width="scale-to-fit"
                                                                  content-height="70%"
                                                                  width="70%"

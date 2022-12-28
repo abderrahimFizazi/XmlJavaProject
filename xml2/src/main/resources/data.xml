@@ -2,11 +2,15 @@
 <?xml-stylesheet type="application/xml"?>
 <Etudiants>
     <Etudiant>
-        <Nom>Fizazi</Nom>
+        <code>1</code>
+        <Nom >Fizazi</Nom>
         <Prenom>Abderrahim</Prenom>
-        <code>123AD329248</code>
-        <image>pics/etudiants/fizazi.jpg</image>
-        <qrc>pics/qrcode/fizazi.png</qrc>
+        <image>pics/etudiants/1.jpg</image>
     </Etudiant>
-
+    <Etudiant>
+        <code>2</code>
+        <Nom >EL debdoubi</Nom>
+        <Prenom>Aymane</Prenom>
+        <image>pics/etudiants/2.jpg</image>
+    </Etudiant>
 </Etudiants>

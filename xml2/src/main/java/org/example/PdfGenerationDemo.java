@@ -23,8 +23,8 @@ import static java.nio.file.Files.*;
 
 public class PdfGenerationDemo
 {
-    public static  String RESOURCES_DIR;
-    public static  String OUTPUT_DIR;
+    public final static  String RESOURCES_DIR;
+    public final static  String OUTPUT_DIR;
 
     static {
         RESOURCES_DIR = "src//main//resources//";
@@ -34,13 +34,13 @@ public class PdfGenerationDemo
     public static void main( String[] args )
     {
         try {
-            convertToPDF("fizazi");
+            convertToPDF(1);
         } catch (FOPException | IOException | TransformerException e) {
             e.printStackTrace();
         }
     }
 
-    public static void convertToPDF( String fullName) throws IOException, FOPException, TransformerException {
+    public static void convertToPDF(int Appoge ) throws IOException, FOPException, TransformerException {
         // the XSL FO file
         File xsltFile = new File(RESOURCES_DIR + "//template.xsl");
         // the XML file which provides the input
@@ -51,7 +51,7 @@ public class PdfGenerationDemo
         FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
         // Setup output
         OutputStream out;
-        out = newOutputStream(Paths.get(OUTPUT_DIR + "//" + fullName + ".pdf"));
+        out = newOutputStream(Paths.get(OUTPUT_DIR + "//" + Appoge + ".pdf"));
 
 
         try {
@@ -61,6 +61,7 @@ public class PdfGenerationDemo
             // Setup XSLT
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer transformer = factory.newTransformer(new StreamSource(xsltFile));
+            transformer.setParameter("code", Appoge);
 
             // Resulting SAX events (the generated FO) must be piped through to
             // FOP
