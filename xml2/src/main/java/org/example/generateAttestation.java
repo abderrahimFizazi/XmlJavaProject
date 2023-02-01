@@ -79,6 +79,7 @@ public class generateAttestation {
                 Result res = new SAXResult(fop.getDefaultHandler());
                 transformer.transform(xmlSource, res);
                 System.out.println("L'Attestastion est bien generee en succees ! ");
+                System.out.println("(veillez chequer /resources/Output/Attestation/"+codeI+")");
             } finally {
                 out.close();
             }

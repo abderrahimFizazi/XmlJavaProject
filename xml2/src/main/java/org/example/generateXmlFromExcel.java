@@ -12,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
  public class generateXmlFromExcel {
 
-     public static void main(String[] args) throws Exception {
+     public static void main() throws Exception {
          // Open the Excel file
          Workbook workbook = new XSSFWorkbook("src/main/resources/DATA_GINF2.xlsx");
 
@@ -44,7 +44,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
                      case 0:
                          String apogee = String.valueOf(cell.toString());
                          writer.writeAttribute("Apogee",apogee);
-                         System.out.println(apogee);
                          break;
                      case 1:
                          writer.writeStartElement("Nom");
@@ -94,5 +93,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
          // Close the OutputStream
          outputStream.close();
+         System.out.println("Fichier XML est bien genere (veillez chequer /resources/data.xml)");
      }
  }

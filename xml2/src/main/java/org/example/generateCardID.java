@@ -79,6 +79,7 @@ public class generateCardID
             Result res = new SAXResult(fop.getDefaultHandler());
             transformer.transform(xmlSource, res);
             System.out.println("La carte est bien generee en succees ! ");
+            System.out.println("(veillez chequer /resources/Output/CardId/"+ codeI + ")");
         } finally {
             out.close();
         }
